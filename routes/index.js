@@ -14,8 +14,7 @@ router.get('/', function(req, res, next) {
     // }
     res.render('index', { "posts" : posts});
     console.log( posts.body);
-    console.log( posts.title);
-    console.log( posts.author)
+    
   }); 
 });
 
