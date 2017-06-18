@@ -9,7 +9,9 @@ body {
   width: 900px;
   margin: auto;
   display: block;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
+  border-top-right-radius: 8px; 
+  border-top-left-radius: 8px;
 }
 
 .container{
@@ -49,7 +51,7 @@ nav{
   height: 40px;
   padding: 20px 0 0 10px;
   font-size: 18px;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 
 nav li {

@@ -1,9 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var mongo = require('mongodb');
+var db = require('monk')('localhost/nodeblog');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var db = req.db;
+  var posts = db.get('posts');
+  posts.find({}, {}, function(err, posts) {
+    // if(err){
+    //   res.send( "post not found");
+    //   console.log( err.message);
+    // }
+    res.render('index', { "posts" : posts});
+    console.log( posts.body);
+    console.log( posts.title);
+    console.log( posts.author)
+  }); 
 });
 
 module.exports = router;
