@@ -23,14 +23,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //Handles file upload
-app.use(multer({ dest: './public/images/uploads' }));
-// app.use(multer({ dest: __dirname + '/uploads/' }).any());
+// app.use(multer({ dest: '/public/images/uploads' }));
+app.use(multer({ dest: __dirname + './public/images/uploads/' }).any());
 
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 //Handles express sessions
@@ -58,7 +59,7 @@ app.use(expressValidator({
         };
     }
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Connect Flash
 app.use(flash());
